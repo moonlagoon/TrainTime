@@ -1,0 +1,50 @@
+body {
+    align-content: center;
+    text-align: center;
+    background-image: url("https://i.pinimg.com/originals/2d/ae/36/2dae3606d19b12a872813fff230e0ca1.jpg"); background-size: cover;
+}
+
+.container {
+    background-color: white;
+    background: rgba(255, 255, 255, 0.8);
+    align-content: center;
+    text-align: center;
+}
+
+.container2 {
+    background: rgba(255, 255, 255, 0.8);
+    align-content: center;
+    text-align: center;
+    position: relative;
+    width: 80%;
+    height: 30%;
+    left: 150px;
+    top: 30px;
+}
+
+.container2 .panel-title {
+    position: relative;
+    left: 110px;
+}
+
+.container2 .panel-body {
+    position: relative;
+    left: 110px;
+}
+
+.container3 {
+    background: rgba(255, 255, 255, 0.8);
+    align-content: center;
+    position: relative;
+    width: 80%;
+    height: 30%;
+    left: 150px;
+    top: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.container3 h3 {
+    position: relative;
+    text-align: center;
+}
