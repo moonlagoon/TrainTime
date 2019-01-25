@@ -40,20 +40,20 @@ $("#addAfriend").on("click", function(event){
 database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
-  nameOfTrain = childSnapshot.val().trainname;
-  destinationOfTrain = childSnapshot.val().destination
-  timeOfTrain = childSnapshot.val().firsttime;
-  minOfNextArrival = childSnapshot.val().frequency;
+  nameOfTrain = childSnapshot.val().nameOfTrain;
+  destinationOfTrain = childSnapshot.val().destinationOfTrain
+  timeOfTrain = childSnapshot.val().timeOfTrain;
+  minOfNextArrival = childSnapshot.val().minOfNextArrival;
 
-  var firsttimeMoment = moment(firsttime, "HH:mm");
+  var timeOfTrainMoment = moment(timeOfTrain, "HH:mm");
 
   var currenttime = moment();
 
-  var minuteArrival = currenttime.diff(firsttimeMoment, 'minutes');
-    var minuteLast = minuteArrival % frequency;
-    var awayTrain = frequency - minuteLast;
+  var minuteArrival = currenttime.diff(timeOfTrainMoment, 'minutes');
+    var minuteLast = minuteArrival % minOfNextArrival;
+    var awayTrain = minOfNextArrival - minuteLast;
 
     var nextArrival = currenttime.add(awayTrain, 'minutes');
     var arrivaltime = nextArrival.format("HH:mm");
     
-    $("#AddTrain").append("<tr><td>" + trainname + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrivaltime + "</td><td>" + awayTrain + "</td>");
+    $("#TrainToAdd").append("<tr><td>" + nameOfTrain + "</td><td>" + destinationOfTrain + "</td><td>" + minOfNextArrival + "</td><td>" + arrivaltime + "</td><td>" + awayTrain + "</td>");

@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./assets/css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./assets/css/style.css">
 
 
 
-    <title>Train Times</title>
+	<title>Train Times</title>
 </head>
+
 <body>
 
-<div class="container">
-	<h1 class= "text-title">Thomas' Trains</h1>
-</div>
+	<div class="container">
+		<h1 class="text-title">Thomas' Trains</h1>
+	</div>
 
-<div class= "container2">
-	<div class= "row">
-		<div class="col-lg-10">
+	<div class="container2">
+		<div class="row">
+			<div class="col-lg-10">
 				<div class="panel panel-primary">
-						<div class="panel-heading">
-						  <div class="panel-title"><h3>Train Schedule</h3></div>
-						   <div class="panel-body">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h3>Train Schedule</h3>
+						</div>
+						<div class="panel-body">
 							<table class="table table-hover" id="trainTable">
 								<thead>
 									<tr>
-								<th>Name of Train</th>
-								<th>Destination</th>
-								<th>Minutes Between Trains</th>
-								<th>Next Arrival</th>
-								<th>Minutes Away</th>
-							  </tr>
-						    </table>
-						  </thread>
-					  <tbody id= "TrainToAdd"></tbody>
+										<th>Name of Train</th>
+										<th>Destination</th>
+										<th>Minutes Between Trains</th>
+										<th>Next Arrival</th>
+										<th>Minutes Away</th>
+									</tr>
+							</table>
+							</thread>
+							<tbody id="TrainToAdd"></tbody>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 
 
-<div class= "container3">
-  <div class="row">
-		<div class="col-lg-12">
-			<div class="panel panel-primary">
-  				<div class="panel-heading">
-    				<div class="panel-title"><h3>Add Train</h3></div>
-  				<div class="panel-body">
+	<div class="container3">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h3>Add Train</h3>
+						</div>
+						<div class="panel-body">
 
-<form>
-		<div class="form-group">
-				<label for="train-input">Train Name</label>
-				<input type="text" class="form-control" id="train-name-input">
+							<form>
+								<div class="form-group">
+									<label for="train-input">Train Name</label>
+									<input type="text" class="form-control" id="train-name-input">
+								</div>
+								<div class="form-group">
+									<label for="destination-input">Destination</label>
+									<input type="text" class="form-control" id="destination-input">
+								</div>
+								<div class="form-group">
+									<label for="firsttrain-input">Train Time</label>
+									<input type="text" class="form-control" id="train-time-input" placeholder="13:00 military">
+								</div>
+								<div class="form-group">
+									<label for="minutes-between-trains">Minutes Between Trains</label>
+									<input type="text" class="form-control" id="minutes-between-trains">
+								</div>
+								<button type="submit" class="btn btn-primary" id="addAfriend">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="destination-input">Destination</label>
-				<input type="text" class="form-control" id="destination-input">
-			</div>
-			<div class="form-group">
-				<label for="firsttrain-input">Train Time</label>
-				<input type="text" class="form-control" id="train-time-input" placeholder="13:00 military">
-			</div>
-			<div class="form-group">
-				<label for="minutes-between-trains">Minutes Between Trains</label>
-				<input type="text" class="form-control" id="minutes-between-trains">
-			</div>
-			<button type="submit" class="btn btn-primary" id="addAfriend">Submit</button>
-</form>
-	</div>
-   </div>
-  </div>
-</div>
-</div>
+		</div>
 
 
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="assets/javascript/main.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+		 crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="assets/javascript/main.js"></script>
 
 </body>
+
 </html>
