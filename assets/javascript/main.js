@@ -73,21 +73,21 @@ $("#submit").on("click", function(event) {
 
 database.ref().on("child_added", function(childSnapshot) {
   var startTimeConverted = moment(childSnapshot.val().startTime, "hh:mm").subtract(1, "years");
-  var timeDiff = moment().diff(moment(startTimeConverted), "minutes");
-  var timeRemain = timeDiff % childSnapshot.val().frequency;
-  var minToArrival = childSnapshot.val().frequency - timeRemain;
-  var nextTrain = moment().add(minToArrival, "minutes");
+  var timeDifference = moment().diff(moment(startTimeConverted), "minutes");
+  var timeRemain = timeDifference % childSnapshot.val().frequency;
+  var minutesToArrival = childSnapshot.val().frequency - timeRemain;
+  var oncomingTrain = moment().add(minutesToArrival, "minutes");
   var key = childSnapshot.key;
 
   var newrow = $("<tr>");
   newrow.append($("<td>" + childSnapshot.val().trainName + "</td>"));
   newrow.append($("<td>" + childSnapshot.val().destination + "</td>"));
   newrow.append($("<td class='text-center'>" + childSnapshot.val().frequency + "</td>"));
-  newrow.append($("<td class='text-center'>" + moment(nextTrain).format("LT") + "</td>"));
-  newrow.append($("<td class='text-center'>" + minToArrival + "</td>"));
+  newrow.append($("<td class='text-center'>" + moment(oncomingTrain).format("LT") + "</td>"));
+  newrow.append($("<td class='text-center'>" + minutesToArrival + "</td>"));
   newrow.append($("<td class='text-center'><button class='arrival btn btn-danger btn-xs' data-key='" + key + "'>X</button></td>"));
 
-  if (minToArrival < 6) {
+  if (minutesToArrival < 6) {
     newrow.addClass("info");
   }
 
