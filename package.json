@@ -1,0 +1,19 @@
+{
+  "name": "traintime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonlagoon/TrainTime.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moonlagoon/TrainTime/issues"
+  },
+  "homepage": "https://github.com/moonlagoon/TrainTime#readme"
+}

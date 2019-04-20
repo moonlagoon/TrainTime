@@ -1,97 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="./assets/css/style.css">
-
-
-
-	<title>Train Times</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Scheduler</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center" id="heading">Thomas' Trains</h1>
+      <p class="pull-right" id="currentTime"></p>
+    </div>
 
-	<div class="container">
-		<h1 class="text-title">Thomas' Trains</h1>
-	</div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">Train Schedule</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-hover" id="train-table">
+              <thead>
+                <tr>
+                  <th>Train Name</th>
+                  <th>Destination</th>
+                  <th class="text-center">Frequency</th>
+                  <th class="text-center">Next Arrival</th>
+                  <th class="text-center">Minutes Away</th>
+                  <th class="text-center">Remove</th>
+                </tr>
+              </thead>
+              <tbody id="train-table-rows">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-	<div class="container2">
-		<div class="row">
-			<div class="col-lg-10">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="panel-title">
-							<h3>Train Schedule</h3>
-						</div>
-						<div class="panel-body">
-							<table class="table table-hover" id="trainTable">
-								<thead>
-									<tr>
-										<th>Name of Train</th>
-										<th>Destination</th>
-										<th>Minutes Between Trains</th>
-										<th>Next Arrival</th>
-										<th>Minutes Away</th>
-									</tr>
-							</table>
-							</thread>
-							<tbody id="TrainToAdd"></tbody>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="col-md-12 col-sm-6">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add New Train</h3>
+            <div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <label>Train Name</label>
+                    <input type="text" class="form-control form-field" id="train-name">
+                  </div>
+                  <div class="form-group">
+                    <label>Destination</label>
+                    <input type="text" class="form-control form-field" id="destination">
+                  </div>
+                  <div class="form-group">
+                    <label>First Train Time: HH:mm - military time</label>
+                    <input type="text" class="form-control form-field" id="first-train">
+                  </div>
+                  <div class="form-group">
+                    <label>Frequency (min)</label>
+                    <input type="text" class="form-control form-field" id="frequency">
+                  </div>
 
+                  <button type="submit" class="btn btn-default" id="submit">Add Train</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<div class="container3">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="panel-title">
-							<h3>Add Train</h3>
-						</div>
-						<div class="panel-body">
-
-							<form>
-								<div class="form-group">
-									<label for="train-input">Train Name</label>
-									<input type="text" class="form-control" id="train-name-input">
-								</div>
-								<div class="form-group">
-									<label for="destination-input">Destination</label>
-									<input type="text" class="form-control" id="destination-input">
-								</div>
-								<div class="form-group">
-									<label for="firsttrain-input">Train Time</label>
-									<input type="text" class="form-control" id="train-time-input" placeholder="13:00 military">
-								</div>
-								<div class="form-group">
-									<label for="minutes-between-trains">Minutes Between Trains</label>
-									<input type="text" class="form-control" id="minutes-between-trains">
-								</div>
-								<button type="submit" class="btn btn-primary" id="addAfriend">Submit</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-		 crossorigin="anonymous">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script src="assets/javascript/main.js"></script>
-
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
